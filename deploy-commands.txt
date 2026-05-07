@@ -1,0 +1,22 @@
+
+DEPLOY:
+
+aws cloudformation create-stack \
+--stack-name app-stack \
+--template-body file://template.yaml \
+--parameters \
+ParameterKey=KeyName,ParameterValue=aws \
+ParameterKey=DBPassword,ParameterValue=MyPassword123
+
+----------------------------------------------------------------
+
+DELETE:
+
+aws cloudformation delete-stack --stack-name app-stack
+
+----------------------------------------------------------------
+
+DEBUG:
+
+aws cloudformation describe-stack-events \
+--stack-name app-stack
